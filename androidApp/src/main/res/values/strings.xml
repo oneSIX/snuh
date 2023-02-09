@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Snuh</string>
+
+    <!-- Generic -->
+    <string name="api_error">Error from API.</string>
+
+    <!-- List Screen -->
+    <string name="state_capital_list">State Capitals</string>
+
+    <!-- Details Screen -->
+    <string name="book_title">Book title: %s</string>
+</resources>
