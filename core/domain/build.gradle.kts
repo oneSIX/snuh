@@ -8,4 +8,5 @@ dependencies {
     implementation(project(":core:data"))
 
     implementation(libs.bundles.javax)
+    implementation(libs.kotlinx.datetime)
 }

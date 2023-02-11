@@ -21,7 +21,7 @@ fun SnuhNavHost(
         }
         composable(NavRoutes.Details.path) { backStackEntry ->
             backStackEntry.arguments?.getString(NavRoutes.DETAILS_ID_KEY)?.let {
-                DetailsScreen(detailViewModel(bookId = it))
+                DetailsScreen(detailViewModel(stateCapital = it))
             }
         }
     }

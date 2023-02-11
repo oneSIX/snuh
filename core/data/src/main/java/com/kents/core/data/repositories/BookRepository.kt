@@ -14,4 +14,5 @@ class BookRepository
 
     suspend fun getBookDetails(id: String): Result<BookDetailsDto> =
         openLibraryService.getBook(id)
+
 }

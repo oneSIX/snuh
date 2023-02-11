@@ -4,6 +4,7 @@ import android.app.Application
 import android.os.StrictMode
 import dagger.hilt.android.HiltAndroidApp
 import com.kents.core.commons.Log.addLogger
+import com.kents.core.commons.logd
 import com.kents.snuh.utils.AndroidLogger
 
 @HiltAndroidApp

@@ -28,7 +28,7 @@ fun DetailsScreen(detailsViewModel: DetailsViewModel) {
                     .padding(16.dp)
             ) {
                 Text(
-                    text = stringResource(id = R.string.book_title, state.book.title),
+                    text = "STUBBY",//stringResource(id = R.string.book_title, state.book.title),
                     style = MaterialTheme.typography.headlineMedium
                 )
             }
