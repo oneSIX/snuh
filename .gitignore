@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+build-logic/convention/build/
+core/commons/build/
+core/data/build/
+core/domain/build/
