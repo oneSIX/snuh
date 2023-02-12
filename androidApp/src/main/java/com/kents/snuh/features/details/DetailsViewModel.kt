@@ -23,24 +23,15 @@ class DetailsViewModel @AssistedInject constructor(
 
     init {
         viewModelScope.launch {
-//            getBook(capitalName)
-//                .onSuccess { _updateState.value = UiState.Success(it) }
-//                .onFailure { _updateState.value = UiState.ErrorFromAPI }
             getForecast(stateCapital)
                 .onSuccess { _updateState.value = UiState.Success(it) }
                 .onFailure { _updateState.value = UiState.ErrorFromAPI }
-
         }
     }
 
-//    sealed interface UiState {
-//        object LoadingFromAPI : UiState
-//        data class Success(val book: BookDetails) : UiState
-//        object ErrorFromAPI : UiState
-//    }
     sealed interface UiState {
         object LoadingFromAPI : UiState
-        data class Success(val forecast: List<Forecast>) : UiState
+        data class Success(val forecast: Forecast) : UiState
         object ErrorFromAPI : UiState
     }
 

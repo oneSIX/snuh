@@ -21,7 +21,7 @@ detekt = "1.22.0"
 
 javax = "1"
 kotlinXDatetime = "0.4.0"
-
+coil = "2.2.2"
 hilt = "2.44.2"
 mockk = "1.13.3"
 hilt-testing = "2.44.2"
@@ -40,6 +40,9 @@ androidx-compose-material-iconsExtended = { group = "androidx.compose.material",
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "compose-navigation-hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+
+coil-kt = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
+coil-kt-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 
 compose = { group = "androidx.compose.ui", name = "ui", version.ref = "compose" }
 compose-tools = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose" }

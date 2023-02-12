@@ -95,10 +95,7 @@ private fun ListCapitals(
             itemsIndexed(stateCapitals) { _, capital ->
                 Card(
                     shape = RoundedCornerShape(8.dp),
-                    onClick = { onDetailsClicked("TODO") },
-                    //TODO figure out the ARGS to pass to
-                    // the DetailsViewModel to make the API call,
-                    // need geocodes + stationID
+                    onClick = { onDetailsClicked(capital.geoCode) },
                     modifier = Modifier
                         .padding(normalPadding)
 
@@ -156,7 +153,8 @@ private fun ListScreenPreview() {
                         state = "Michigan",
                         currentTemp = 75.0,
                         unitCode = "F",
-                        timeStamp = "2023-02-11 +13:52"
+                        timeStamp = "2023-02-11 +13:52",
+                        "GEOCODES"
                     )
                 }
             ),

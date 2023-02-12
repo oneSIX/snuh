@@ -71,7 +71,6 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:commons"))
 
-    // Dependencies
     // Compose
     implementation(libs.bundles.compose)
 
@@ -79,6 +78,10 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+
+    // Coil
+    implementation(libs.coil.kt)
+    implementation(libs.coil.kt.compose)
 
     // Ktor Engine
     implementation(libs.ktor.core)

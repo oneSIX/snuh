@@ -49,15 +49,16 @@ class ListViewModel @Inject constructor(
         val newList = mutableListOf<StateDisplayModel>()
         StateData.capitals.forEach { stateCapital ->
             getStateCapitals(stateCapital.stationId)
-                .onSuccess {
+                .onSuccess { observation ->
                     // create a display model from the StateCapital + Observation response
                     newList.add(
                         StateDisplayModel(
                             cityName = stateCapital.cityName,
                             state = stateCapital.state,
-                            currentTemp = it.currentTemp ?: 0.0, // TODO handle nulls ehh
-                            unitCode = it.unitCode,
-                            timeStamp = it.timeStamp
+                            currentTemp = observation.currentTemp ?: 0.0, // TODO handle nulls ehh
+                            unitCode = observation.unitCode,
+                            timeStamp = observation.timeStamp,
+                            geoCode = stateCapital.geoCode
                         )
                     )
                     _state.value = ListScreenUiState.UpdateSuccess(newList.toList())

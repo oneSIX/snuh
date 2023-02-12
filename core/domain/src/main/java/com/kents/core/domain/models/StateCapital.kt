@@ -3,7 +3,7 @@ package com.kents.core.domain.models
 data class StateCapital(
     val state: String,
     val cityName: String,
-    val geocode: String,
+    val geoCode: String,
     val stationId: String
 )
 
@@ -12,7 +12,8 @@ data class StateDisplayModel(
     val state: String,
     val currentTemp: Double,
     val unitCode: String,
-    val timeStamp: String
+    val timeStamp: String,
+    val geoCode: String
 )
 
 object StateData {
