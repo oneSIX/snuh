@@ -4,8 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import com.kents.core.commons.PublishFlow
-import com.kents.core.commons.logd
-import com.kents.core.domain.GetBooks
 import com.kents.core.domain.GetObservation
 import com.kents.core.domain.models.StateDisplayModel
 import com.kents.core.domain.models.StateData
@@ -22,7 +20,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ListViewModel @Inject constructor(
-    private val getBooks: GetBooks,
     private val getStateCapitals: GetObservation
 ) : ViewModel() {
 

@@ -1,6 +1,6 @@
 package com.kents.core.domain.models
 
-import com.kents.core.data.models.observationDto.ObservationDto
+import com.kents.core.data.models.observationdto.ObservationDTO
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toInstant
 import kotlinx.datetime.toLocalDateTime
@@ -12,7 +12,7 @@ data class Observation(
     val timeStamp: String
 )
 
-fun ObservationDto.toModel(): Observation = Observation(
+fun ObservationDTO.toModel(): Observation = Observation(
     currentTemp = parseCurrentTemp(
         this.properties.temperature.value,
         this.properties.temperature.unitCode

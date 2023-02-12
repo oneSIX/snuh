@@ -5,7 +5,9 @@ import com.kents.core.commons.endpoints.WeatherApiEndpoint
 import com.kents.core.commons.loge
 import com.kents.core.data.models.BookDetailsDto
 import com.kents.core.data.models.BookRecords
-import com.kents.core.data.models.observationDto.ObservationDto
+import com.kents.core.data.models.forecastdto.ForecastDTO
+import com.kents.core.data.models.forecastdto.ForecastPointsDTO
+import com.kents.core.data.models.observationdto.ObservationDTO
 import io.ktor.client.call.body
 import io.ktor.client.request.get
 import io.ktor.client.request.url
@@ -18,8 +20,35 @@ class WeatherService
     private val httpClient: WeatherHttpClient,
     @BackgroundDispatcher private val coroutineContext: CoroutineContext
 ) {
+    suspend fun getForecast(forecastUrl: String) : Result<ForecastDTO> =
+        withContext(coroutineContext) {
+            return@withContext try {
+                Result.success(
+                    httpClient().get {
+                        url(path = forecastUrl)
+                    }.body()
+                )
+            }catch (e: Exception) {
+                loge("Failed to get weather forecast")
+                Result.failure(e)
+            }
+        }
 
-    suspend fun getObservation(stationCode: String): Result<ObservationDto> =
+    suspend fun getForecastUrl(geoCodes: String) : Result<ForecastPointsDTO> =
+        withContext(coroutineContext) {
+            return@withContext try {
+                Result.success(
+                    httpClient().get {
+                        url(path = WeatherApiEndpoint.points(geoCodes))
+                    }.body()
+                )
+            } catch (e: Exception) {
+                loge("Failed to get forecast url for $geoCodes")
+                Result.failure(e)
+            }
+        }
+
+    suspend fun getObservation(stationCode: String): Result<ObservationDTO> =
         withContext(coroutineContext) {
             return@withContext try {
                 Result.success(
@@ -32,11 +61,6 @@ class WeatherService
                 Result.failure(e)
             }
         }
-
-    // TODO get this to work after the observation.
-//    suspend fun getForecastDetails(stationCode: String, geoCords: String) : Result<Forecast> =
-//        withContext()
-
 
     suspend fun getBooks(keyword: String): Result<BookRecords> = withContext(coroutineContext) {
         return@withContext try {
