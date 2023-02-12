@@ -69,7 +69,6 @@ class ListViewModel @Inject constructor(
         }
     }
 
-
     private sealed class Event {
         object Refresh : Event()
     }
@@ -79,5 +78,4 @@ class ListViewModel @Inject constructor(
         data class UpdateSuccess(val stateCapitals: List<StateDisplayModel>) : ListScreenUiState
         object ErrorFromAPI : ListScreenUiState
     }
-
 }

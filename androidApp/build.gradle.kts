@@ -86,6 +86,8 @@ dependencies {
     // Ktor Engine
     implementation(libs.ktor.core)
     implementation(libs.ktor.engine.android)
+    implementation(libs.kotlinx.datetime)
+
 
     // SplashScreen
     implementation(libs.splashscreen)

@@ -3,6 +3,7 @@ package com.kents.core.domain
 import com.kents.core.commons.logd
 import com.kents.core.data.repositories.WeatherRepository
 import com.kents.core.domain.models.Forecast
+import com.kents.core.domain.models.ForecastPeriod
 import com.kents.core.domain.models.toModel
 import javax.inject.Inject
 
@@ -10,7 +11,7 @@ import javax.inject.Inject
 class GetForecast @Inject constructor(
     private val weatherRepository: WeatherRepository
 ) {
-    suspend operator fun invoke(geoCodes: String): Result<Forecast> {
+    suspend operator fun invoke(geoCodes: String): Result<List<ForecastPeriod>> {
         val result = weatherRepository.getForecastUrl(geoCodes)
         return if (result.isSuccess) {
             // make another API call with this successful URL
@@ -27,7 +28,7 @@ class GetForecast @Inject constructor(
                 // failure of another but this will have to do for now - You have to map the
                 // positive side even though we have a Result that is a failure.
                 logd("Get Forecast URL failure")
-                Forecast()
+                emptyList()
             }
         }
     }

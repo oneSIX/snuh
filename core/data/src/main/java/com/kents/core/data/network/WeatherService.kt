@@ -2,7 +2,6 @@ package com.kents.core.data.network
 
 import com.kents.core.commons.BackgroundDispatcher
 import com.kents.core.commons.endpoints.WeatherApiEndpoint
-import com.kents.core.commons.logd
 import com.kents.core.commons.loge
 import com.kents.core.data.models.BookDetailsDto
 import com.kents.core.data.models.BookRecords
@@ -23,16 +22,11 @@ class WeatherService
 ) {
     suspend fun getForecast(forecastUrl: String) : Result<ForecastDTO> =
         withContext(coroutineContext) {
-
             // Check and remove the start of the URL since it's going to be added back again anyway.
-            // logd("*** forecastURL $forecastUrl")
-            //  *** forecastURL https://api.weather.gov/gridpoints/BMX/81,34/forecast
-            val newUrl = forecastUrl.removePrefix("https://api.weather.gov")
-
             return@withContext try {
                 Result.success(
                     httpClient().get {
-                        url(path = newUrl) // Log this to see what comes of it.
+                        url(path = forecastUrl.removePrefix("https://api.weather.gov"))
                     }.body()
                 )
             }catch (e: Exception) {
