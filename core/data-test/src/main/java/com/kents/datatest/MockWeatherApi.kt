@@ -7,7 +7,7 @@ import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.headersOf
 
-object MockOpenLibraryApi {
+object MockWeatherApi {
 
     private val responseHeaders =
         headersOf("Content-Type" to listOf(ContentType.Application.Json.toString()))
@@ -35,4 +35,5 @@ object MockOpenLibraryApi {
     }
 
     data class ResponseValue(val statusCode: HttpStatusCode, val content: String = "")
+
 }

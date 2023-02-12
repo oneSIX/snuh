@@ -8,7 +8,6 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import com.kents.core.domain.GetForecast
-import com.kents.core.domain.models.Forecast
 import com.kents.core.domain.models.ForecastPeriod
 import com.kents.snuh.features.details.DetailsViewModel.DetailScreenUiState.*
 import kotlinx.coroutines.flow.launchIn

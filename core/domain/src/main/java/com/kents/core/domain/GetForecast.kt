@@ -2,7 +2,6 @@ package com.kents.core.domain
 
 import com.kents.core.commons.logd
 import com.kents.core.data.repositories.WeatherRepository
-import com.kents.core.domain.models.Forecast
 import com.kents.core.domain.models.ForecastPeriod
 import com.kents.core.domain.models.toModel
 import javax.inject.Inject

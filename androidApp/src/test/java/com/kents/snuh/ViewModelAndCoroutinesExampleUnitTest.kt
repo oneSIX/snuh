@@ -1,8 +1,9 @@
 package com.kents.snuh
 
 import app.cash.turbine.test
-import com.kents.core.domain.GetBooks
-import com.kents.core.domain.models.Book
+import com.kents.core.domain.GetObservation
+import com.kents.core.domain.models.Observation
+import com.kents.core.domain.models.StateDisplayModel
 import com.kents.snuh.features.list.ListViewModel
 import com.kents.snuh.features.list.ListViewModel.ListScreenUiState.ErrorFromAPI
 import com.kents.snuh.features.list.ListViewModel.ListScreenUiState.LoadingFromAPI
@@ -21,11 +22,9 @@ class ViewModelAndCoroutinesExampleUnitTest {
     @get:Rule
     val coroutinesTestRule = MockMainDispatcherTestRule()
 
-    private val getBooksMock = mockk<GetBooks>()
+    private val getObservation = mockk<GetObservation>()
 
-    private fun buildVM(): ListViewModel = ListViewModel(
-        getBooksMock
-    )
+    private fun buildVM(): ListViewModel = ListViewModel(getObservation)
 
     @Test
     fun `Test Initial State`() = runTest(coroutinesTestRule.testDispatcher) {
@@ -44,8 +43,21 @@ class ViewModelAndCoroutinesExampleUnitTest {
     @Test
     fun `Test Refresh`() = runTest(coroutinesTestRule.testDispatcher) {
         // Arrange
-        val result = Result.success(listOf(Book("1", "bloco.io")))
-        coEvery { getBooksMock.invoke() } returns result
+        val result = Result.success(
+            listOf(
+                StateDisplayModel(
+                    "test-city",
+                    "test-state",
+                    100.0,
+                    "test-unit-code",
+                    "test-time-stamp",
+                    "test-geo-code"
+                )
+            )
+        )
+
+
+        //coEvery { getObservation.invoke("CODE") } returns result
 
         val vm = buildVM()
 
@@ -64,8 +76,8 @@ class ViewModelAndCoroutinesExampleUnitTest {
     @Test
     fun `Test Error State`() = runTest(coroutinesTestRule.testDispatcher) {
         // Arrange
-        val result: Result<List<Book>> = Result.failure(Exception(""))
-        coEvery { getBooksMock.invoke() } returns result
+        val result: Result<List<StateDisplayModel>> = Result.failure(Exception(""))
+//        coEvery { getObservation.invoke("1010") } returns result
 
         val vm = buildVM()
 

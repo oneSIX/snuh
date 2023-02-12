@@ -1,8 +1,8 @@
 package com.kents.datatest
 
 object DataTestResources {
-    fun bookListJson(): String =
-        loadJsonResource("bookList")
+    fun weatherPointsJson(): String =
+        loadJsonResource("points")
 
     private fun loadJsonResource(fileName: String) =
         javaClass.classLoader!!

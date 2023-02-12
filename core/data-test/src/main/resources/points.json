@@ -1,0 +1,94 @@
+{
+  "@context": [
+    "https://geojson.org/geojson-ld/geojson-context.jsonld",
+    {
+      "@version": "1.1",
+      "wx": "https://api.weather.gov/ontology#",
+      "s": "https://schema.org/",
+      "geo": "http://www.opengis.net/ont/geosparql#",
+      "unit": "http://codes.wmo.int/common/unit/",
+      "@vocab": "https://api.weather.gov/ontology#",
+      "geometry": {
+        "@id": "s:GeoCoordinates",
+        "@type": "geo:wktLiteral"
+      },
+      "city": "s:addressLocality",
+      "state": "s:addressRegion",
+      "distance": {
+        "@id": "s:Distance",
+        "@type": "s:QuantitativeValue"
+      },
+      "bearing": {
+        "@type": "s:QuantitativeValue"
+      },
+      "value": {
+        "@id": "s:value"
+      },
+      "unitCode": {
+        "@id": "s:unitCode",
+        "@type": "@id"
+      },
+      "forecastOffice": {
+        "@type": "@id"
+      },
+      "forecastGridData": {
+        "@type": "@id"
+      },
+      "publicZone": {
+        "@type": "@id"
+      },
+      "county": {
+        "@type": "@id"
+      }
+    }
+  ],
+  "id": "https://api.weather.gov/points/39.1619,-75.5268",
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -75.526799999999994,
+      39.161900000000003
+    ]
+  },
+  "properties": {
+    "@id": "https://api.weather.gov/points/39.1619,-75.5268",
+    "@type": "wx:Point",
+    "cwa": "PHI",
+    "forecastOffice": "https://api.weather.gov/offices/PHI",
+    "gridId": "PHI",
+    "gridX": 41,
+    "gridY": 37,
+    "forecast": "https://api.weather.gov/gridpoints/PHI/41,37/forecast",
+    "forecastHourly": "https://api.weather.gov/gridpoints/PHI/41,37/forecast/hourly",
+    "forecastGridData": "https://api.weather.gov/gridpoints/PHI/41,37",
+    "observationStations": "https://api.weather.gov/gridpoints/PHI/41,37/stations",
+    "relativeLocation": {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75.521659,
+          39.160601999999997
+        ]
+      },
+      "properties": {
+        "city": "Dover",
+        "state": "DE",
+        "distance": {
+          "unitCode": "wmoUnit:m",
+          "value": 466.15127889822003
+        },
+        "bearing": {
+          "unitCode": "wmoUnit:degree_(angle)",
+          "value": 288
+        }
+      }
+    },
+    "forecastZone": "https://api.weather.gov/zones/forecast/DEZ002",
+    "county": "https://api.weather.gov/zones/county/DEC001",
+    "fireWeatherZone": "https://api.weather.gov/zones/fire/DEZ002",
+    "timeZone": "America/New_York",
+    "radarStation": "KDOX"
+  }
+}
